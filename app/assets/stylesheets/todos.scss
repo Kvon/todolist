@@ -1,3 +1,126 @@
 // Place all the styles related to the todos controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.item{
+  &.completed .todo-name{
+    text-decoration: line-through;
+  }
+}
+
+span.dot {
+  text-align: center;
+  position: relative;
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  display: inline-block;
+  margin: 0 5px;
+  i{
+    color: white;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+  }
+  &.chosen{
+    i{
+      display: inline-block;
+    }
+    text-align: center;
+    height: 30px;
+    width: 30px;
+  }
+}
+
+#wrapper{
+  &.list{
+    .item{
+      padding: 5px 10px;
+      &:last-child{
+        .inner-item{
+          border-bottom: none;
+        }
+      }
+      .inner-item{
+        border-bottom: 1px solid rgba(0,0,0,0.125);
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        .todo-actions{
+          float: right;
+        }
+        .todo-completed,.todo-actions{
+          margin: 0 5px;
+        }
+        .todo-color,.todo-name,.todo-completed,.todo-actions{
+          line-height: 100%;
+        }
+        .todo-name{
+          flex-grow: 1;
+        }
+      }
+    }
+  }
+  &.tiles{
+    display: flex;
+    flex-wrap: wrap;
+    .item{
+      width: 200px;
+      height: 200px;
+      padding: 10px;
+      .inner-item{
+        padding: 10px;
+        width: 100%;
+        height: 100%;
+        border: 1px solid rgba(0,0,0,0.125);
+        border-radius: 0.25rem;
+        position: relative;
+        .todo-name{
+          padding-right: 20px;
+        }
+        .todo-color{
+          position: absolute;
+          left: 10px;
+          bottom: 10px;
+        }
+        .todo-completed{
+          position: absolute;
+          right: 10px;
+          top: 10px;
+        }
+        .todo-actions{
+          position: absolute;
+          bottom: 10px;
+          right: 10px;
+          margin: 0;
+        }
+      }
+    }
+  }
+}
+
+
+.page-header{
+  position: relative;
+}
+
+.grid-controls{
+  font-size: large;
+  padding: 10px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  a{
+    margin: 5px;
+  }
+}
+
+.controls{
+  padding: 10px;
+}
+
+.form-horizontal .form-group{
+  margin: 0;
+  padding: 10px;
+}

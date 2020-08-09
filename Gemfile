@@ -36,9 +36,12 @@ gem 'jbuilder', '~> 2.5'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
-gem 'bootstrap', '~> 4.3.1'
+gem "twitter-bootstrap-rails"
 gem 'enumerize'
 gem 'slim-rails', '~> 3.2'
+gem 'simple_form'
+gem 'jquery-rails', '~> 4.3'
+gem 'font-awesome-sass'
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.

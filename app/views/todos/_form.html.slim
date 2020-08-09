@@ -1,21 +1,12 @@
-= form_with(model: todo, local: true) do |form|
-  - if todo.errors.any?
-    #error_explanation
-      h2
-        = pluralize(todo.errors.count, "error")
-        |  prohibited this todo from being saved:
-      ul
-        - todo.errors.full_messages.each do |message|
-          li
-            = message
-  .field
-    = form.label :name
-    = form.text_field :name
-  .field
-    = form.label :completed
-    = form.check_box :completed
-  .field
-    = form.label :color
-    = form.text_field :color
-  .actions
-    = form.submit
+= simple_form_for @todo, :html => { :class => "form-horizontal" } do |f|
+  = f.input :name
+  = f.input :color
+    .colors
+      - Todo.color.options.each do |color|
+        span.dot data-todo-color=color[1] style = "background-color: #{color[1]}" class = "#{@todo.color_value == color[1] ? 'chosen' : ''}"
+         = icon('fas', 'check')
+    = f.hidden_field :color
+  .controls
+    = f.button :submit, :class => 'btn-primary'
+    '
+    = link_to t('.cancel', :default => t("helpers.links.cancel")), todos_path, :class => 'btn btn-default'
